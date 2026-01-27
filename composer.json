@@ -1,0 +1,77 @@
+{
+    "name": "mylisterhub/replication-routing",
+    "description": "Database replication routing for Laravel with write fences and lag threshold detection",
+    "keywords": [
+        "MyListerHub",
+        "laravel",
+        "database",
+        "replication",
+        "read-replica",
+        "write-fences",
+        "mysql",
+        "mariadb",
+        "postgresql"
+    ],
+    "homepage": "https://github.com/fmtod/mylisterhub-replication-routing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Victor R",
+            "email": "39545521+viicslen@users.noreply.github.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "illuminate/contracts": "^11.0|^12.0",
+        "illuminate/database": "^11.0|^12.0",
+        "illuminate/support": "^11.0|^12.0",
+        "illuminate/redis": "^11.0|^12.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.0",
+        "nunomaduro/collision": "^8.1",
+        "larastan/larastan": "^2.0.1",
+        "orchestra/testbench": "^9.0",
+        "pestphp/pest": "^4.0",
+        "pestphp/pest-plugin-laravel": "^4.0",
+        "phpstan/extension-installer": "^1.1",
+        "phpstan/phpstan-deprecation-rules": "^1.0",
+        "phpstan/phpstan-phpunit": "^1.0",
+        "spatie/laravel-ray": "^1.26",
+        "mockery/mockery": "^1.6"
+    },
+    "autoload": {
+        "psr-4": {
+            "MyListerHub\\ReplicationRouting\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "MyListerHub\\ReplicationRouting\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "post-autoload-dump": "@php ./vendor/bin/testbench package:discover --ansi",
+        "analyse": "vendor/bin/phpstan analyse",
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/pest --coverage",
+        "format": "vendor/bin/pint"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "phpstan/extension-installer": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "MyListerHub\\ReplicationRouting\\ReplicationRoutingServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
